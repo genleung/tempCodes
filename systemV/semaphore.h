@@ -32,7 +32,7 @@ int semInit(key_t key, int nsems, int val);
 /**
  * @brief Set a semaphore's value
  * @param semid Semaphore set's id
- * @param semnum Semaphore index in the set
+ * @param semnum Semaphore's index in the set
  * @param val Value the semaphore will set to
  * @return 0 if successful, -1 otherwise
  */
@@ -41,25 +41,25 @@ int semSetValue(int semid, int semnum, int val);
 /**
  * @brief Get a semaphore's value
  * @param semid Semaphore set's id
- * @param semnum Semaphore index in the set
+ * @param semnum Semaphore's index in the set
  * @return Semaphore's value if successful, -1 otherwise
  */
 int semGetValue(int semid, int semnum);
 
 /**
- * @brief mutex-semaphore pass-check operation
+ * @brief Semaphore pass-check operation
  *      If the semaphore less than or equal to 0, sem_p() would block
  * @param semid Semaphore set's id
- * @param semnum Semaphore index in the set
+ * @param semnum Semaphore's index in the set
 * @return 0 if successful, -1 otherwise
  */
 int semP(int semid, int semnum);
 
 /**
- * @brief mutex-semaphore release operation
+ * @brief Semaphore release operation
  *      Increse the semaphore and return immediately
  * @param semid Semaphore set's id
- * @param semnum Semaphore index in the set
+ * @param semnum Semaphore's index in the set
  * @return 0 if successful, -1 otherwise
  */
 int semV(int semid, int semnum);
@@ -70,6 +70,15 @@ int semV(int semid, int semnum);
  * @return 0 if successful, -1 otherwise
  */
 int semRemove(int semid);
+
+/**
+ * @brief Get samaphore's semncnt (man semctl)
+ * @param semid Semaphore set's id
+ * @param semnum Semaphore's index in the set
+ * @return The semaphore's semncnt 
+ */
+int semncnt(int semid, int semnum);
+
 
 #ifdef __cplusplus
 }

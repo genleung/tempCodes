@@ -62,6 +62,18 @@ int bsemRemove(int semid)
     return semctl(semid, 0, IPC_RMID);
 }
 
+/**
+ * @brief Get samaphore's semncnt (man semctl)
+ * @param semid Semaphore set's id
+ * @return The semaphore's semncnt 
+ */
+int bsemncnt(int semid)
+{
+    return semctl(semid, 0, GETNCNT);
+}
+
+
+
 #ifdef __cplusplus
 }
 #endif

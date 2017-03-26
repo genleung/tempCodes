@@ -42,6 +42,13 @@ int bsemV(int semid);
  */
 int bsemRemove(int semid);
 
+/**
+ * @brief Get samaphore's semncnt (man semctl)
+ * @param semid Semaphore set's id
+ * @return The semaphore's semncnt 
+ */
+int bsemncnt(int semid);
+
 
 #ifdef __cplusplus
 }
